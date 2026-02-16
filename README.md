@@ -7,14 +7,15 @@ This template provides a modern, maintainable starting point for Subnautica mod 
 
 - Quickly bootstrap new mods with a ready-to-eject structure
 - Follow best practices for code organization, asset management, and localization
-- Integrate with popular modding APIs and tools (like Nautilus, OpenMods, NexusMods)
+- Utilize popular Subnautica libraries, such as Nautilus
+- Integrate with popular modding sites using GitHub workflows (NexusMods, OpenMods)
 - Collaborate more easily with other developers
 
 While not all Subnautica mods follow this structure, this template reflects the author's best attempt at a scalable, maintainable workflow. Use it as a strong foundation, adapt as needed, and enjoy faster, cleaner mod development!
 
 ## ⚙️ Requirements / Prerequisites
 
-- **.NET SDK 4.7.2+** (for building the mod)
+- **.NET SDK 4.7.2+**
 - **Python 3** (only needed for the eject script)
 - **Make** (optional, for using the Makefile)
 
@@ -27,12 +28,12 @@ Make sure these tools are installed before you begin.
 
 ## 🌟 Helpful Modding Resources
 
-- [BepInEx Plugin Documentation](https://docs.bepinex.dev/articles/dev_guide/plugin_tutorial/index.html) - Additional info about setting up your plugin
+- [BepInEx Plugin Documentation](https://docs.bepinex.dev/articles/dev_guide/plugin_tutorial/index.html) - Additional info about setting up your plugin.
 - [Nautilus API Documentation](https://subnauticamodding.github.io/Nautilus/index.html) — Essential reference for Subnautica modding with Nautilus.
 - [SN1 Prefab Class IDs](https://raw.githubusercontent.com/32Kallies/Lee23-LegacySubnauticaMods/8e1451f5e064711834af464315cc3c17ea53d3e7/Resources/SN1-PrefabPaths.json) — List of base-game prefab class IDs, useful for making clone templates.
-- [Subnautica PDA Voice Generator](https://subnauticapdavoice.com) — Generate new PDA voice lines (most accurate representation).
-- [Meshy](https://www.meshy.ai) — Generate meshes (great for prototyping, but watch out for high poly count).
-- [ElevenLabs](https://elevenlabs.io) — Generate custom voice lines.
+- [Subnautica PDA Voice Generator](https://subnauticapdavoice.com) — Generate new PDA voice lines (most accurate representation I've found).
+- [Meshy](https://www.meshy.ai/?utm_source=meshy&utm_medium=referral-program&utm_content=C02VG9&share_type=invite-friends) — Generate 3D models (great for prototyping, but watch out for high poly count).
+- [ElevenLabs](https://try.elevenlabs.io/m7vxp0vomdh9) — Generate custom voice lines for story-driven mods, if not using real voice actors.
 
 ## 🚨 Eject Before You Begin
 **Before making any changes or starting development, you must run `make eject` (or execute the `eject.py` script).**
