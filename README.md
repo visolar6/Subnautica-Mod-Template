@@ -14,10 +14,9 @@ While not all Subnautica mods follow this structure, this template reflects the 
 
 ## ⚙️ Requirements / Prerequisites
 
-- **Python 3** (only needed for the eject script)
 - **.NET SDK 4.7.2+** (for building the mod)
+- **Python 3** (only needed for the eject script)
 - **Make** (optional, for using the Makefile)
-- Recommended: Visual Studio, Rider, or VSCode with C# support
 
 Make sure these tools are installed before you begin.
 
