@@ -1,0 +1,33 @@
+
+name: OpenMods
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  openmods-refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check OpenMods secrets
+        id: check_secrets
+        run: |
+          if [ -z "${{ secrets.OPENMODS_API_KEY }}" ] || [ -z "${{ secrets.OPENMODS_MOD_ID }}" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Refresh OpenMods Mod Page
+        if: steps.check_secrets.outputs.skip == 'false'
+        env:
+          API_KEY: ${{ secrets.OPENMODS_API_KEY }}
+          MOD_ID: ${{ secrets.OPENMODS_MOD_ID }}
+        run: |
+          set -euo pipefail
+          curl -X POST \
+            "https://www.openmods.net/api/v1/Mods/$MOD_ID/Refresh" \
+            -H "Authorization: Bearer $API_KEY" \
+            -H "accept: */*" \
+            --fail
+          echo "OpenMods refresh triggered successfully."

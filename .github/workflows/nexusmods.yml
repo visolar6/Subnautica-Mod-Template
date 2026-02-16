@@ -1,0 +1,47 @@
+name: NexusMods
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  nexusmods-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check NexusMods secrets
+        id: check_secrets
+        run: |
+          if [ -z "${{ secrets.NEXUSMODS_API_KEY }}" ] || [ -z "${{ secrets.NEXUSMODS_MOD_ID }}" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Get release asset name
+        if: steps.check_secrets.outputs.skip == 'false'
+        id: get_asset
+        run: |
+          asset_name=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/releases/tags/${{ github.event.release.tag_name }}" \
+            | jq -r '.assets[0].name')
+          echo "asset_name=$asset_name" >> $GITHUB_OUTPUT
+
+      - name: Download release asset
+        if: steps.check_secrets.outputs.skip == 'false'
+        uses: actions/download-release-asset@v1
+        with:
+          repository: ${{ github.repository }}
+          tag: ${{ github.event.release.tag_name }}
+          file: ${{ steps.get_asset.outputs.asset_name }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload file to NexusMods
+        if: steps.check_secrets.outputs.skip == 'false'
+        uses: Nexus-Mods/upload-action@v2
+        with:
+          api-key: ${{ secrets.NEXUSMODS_API_KEY }}
+          mod-id: ${{ secrets.NEXUSMODS_MOD_ID }}
+          game-domain: subnautica
+          file-path: ${{ steps.get_asset.outputs.asset_name }}
+          version: ${{ github.event.release.tag_name }}
+          changelog: ${{ github.event.release.body }}
