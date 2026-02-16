@@ -53,31 +53,19 @@ Make sure these tools are installed before you begin.
 - **Other issues:**
   - See the [CONTRIBUTING.md](CONTRIBUTING.md) for more help or to report a problem.
 
-## 📁 Project Structure & Conventions
-This template features a thoughtfully organized directory structure:
 
-- `Assets/` — For images, icons, and other asset files.
-- `Config/` — For configuration/state files.
-- `Localization/` — For translation and localization resources.
-- `Mono/` — For MonoBehaviour scripts and Unity components.
-- `Patches/` — For Harmony patch classes and method patches.
-- `Prefabs/` — For example prefabs, organized by type (e.g., `Equipment/`, `Resources/`, `Vehicles/`, etc.).
-- `Utilities/` — For utility/helper classes.
+## 📁 Project Structure & Example Files
+This template features a thoughtfully organized directory structure, with each folder containing practical example files to help you implement common mod features:
 
-These conventions help keep your mod organized and make it easier for others to understand and contribute to your project.
+- `Assets/` — Asset bundles, images, audio, etc.
+- `Config/` — Configuration/state files for persistent state between reloads.
+- `Localization/` — Translation/localization resources.
+- `Mono/` — Unity MonoBehaviour scripts for custom game components.
+- `Patches/` — Harmony patch classes for modifying game methods.
+- `Prefabs/` — Example prefabs, organized by type (e.g., `Equipment/`, `Resources/`, `Vehicles/`, etc.).
+- `Utilities/` — Generic helper classes, not specific to any feature.
 
-## 📝 Example Files
-This template includes a variety of example files to provide a baseline for common mod features:
-
-- **Patches:** Example Harmony patch classes in `Patches/` show how to patch game methods and classes.
-- **Prefabs:** Example prefab scripts in `Prefabs/` demonstrate how to add new equipment, resources, vehicles, and more.
-- **MonoBehaviours:** Example Unity MonoBehaviour scripts in `Mono/` illustrate how to create custom game components.
-- **Config & State:** Example configuration/state files in `Config/` show how to manage mod state that persists between reloads.
-- **Assets:** Example asset bundle in `Assets/` provides a naming convention for asset bundle files.
-- **Localization:** Example localization files in `Localization/` help you support multiple languages.
-- **Utilities:** Example utility classes in `Utilities/` offer reusable helpers for your mod logic.
-
-Each example is designed to be a reference for implementing similar features in your own mod, helping you get started quickly and follow best practices.
+Each example is designed as a reference for implementing similar features in your own mod, helping you get started quickly and follow best practices.
 
 ## 🤝 Contributing
 
