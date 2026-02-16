@@ -108,6 +108,8 @@ def preview_renames(modid, modname, modlongname):
         print(f"  File: ./MODNAME/MODNAME.csproj -> ./{modname}/{modname}.csproj")
     if os.path.isfile("./MODLONGNAME.sln"):
         print(f"  File: ./MODLONGNAME.sln -> ./{hyplongname}.sln")
+    if os.path.isfile("Makefile"):
+        print(f"  File: Makefile (template variables will be replaced)")
 
 def do_replacements(files, modauthor, modid, modname, modlongname, gamedir):
     for f in files:
@@ -192,6 +194,16 @@ def main():
             mf.writelines(lines)
     except Exception as e:
         print(f"Warning: Could not update Makefile to remove eject target: {e}")
+
+    # Remove the .git folder
+    git_dir = '.git'
+    import shutil
+    if os.path.isdir(git_dir):
+        try:
+            shutil.rmtree(git_dir)
+            print(".git folder removed.")
+        except Exception as e:
+            print(f"Warning: Could not remove {git_dir}: {e}")
 
     # Delete this script
     try:
