@@ -12,8 +12,6 @@ This template provides a modern, maintainable starting point for Subnautica mod 
 
 While not all Subnautica mods follow this structure, this template reflects the author's best attempt at a scalable, maintainable workflow. Use it as a strong foundation, adapt as needed, and enjoy faster, cleaner mod development!
 
-> **Note:** This template is highly opinionated. Not all Subnautica mods follow this structure or set of conventions—this template reflects the author's best attempt at a maintainable, scalable, and modern modding workflow. Use it as a strong starting point, but be aware that other mods in the community may look very different.
-
 ## ⚙️ Requirements / Prerequisites
 
 - **Python 3** (only needed for the eject script)
