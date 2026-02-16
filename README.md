@@ -18,7 +18,6 @@ While not all Subnautica mods follow this structure, this template reflects the 
 
 - **Python 3** (only needed for the eject script)
 - **.NET SDK 4.7.2+** (for building the mod)
-- **Unity** (for asset bundle creation, if needed)
 - **Make** (optional, for using the Makefile)
 - Recommended: Visual Studio, Rider, or VSCode with C# support
 
@@ -27,7 +26,16 @@ Make sure these tools are installed before you begin.
 ## 🛠️ Recommended Software & Tools
 
 - **Visual Studio Code** — Recommended for programming. See the recommended extensions in `.vscode/extensions.json` for a better development experience.
-- **Unity 2019.4.41f2** — Required for asset bundling. Make sure to use this exact version for compatibility with Subnautica.
+- **Unity 2019.4.41f2** — Required for asset bundling (if you are adding assets). Make sure to use this exact version for compatibility with Subnautica.
+
+## 🌟 Helpful Modding Resources
+
+- [BepInEx Plugin Documentation](https://docs.bepinex.dev/articles/dev_guide/plugin_tutorial/index.html) - Additional info about setting up your plugin
+- [Nautilus API Documentation](https://subnauticamodding.github.io/Nautilus/index.html) — Essential reference for Subnautica modding with Nautilus.
+- [SN1 Prefab Class IDs](https://raw.githubusercontent.com/32Kallies/Lee23-LegacySubnauticaMods/8e1451f5e064711834af464315cc3c17ea53d3e7/Resources/SN1-PrefabPaths.json) — List of base-game prefab class IDs, useful for making clone templates.
+- [Subnautica PDA Voice Generator](https://subnauticapdavoice.com) — Generate new PDA voice lines (most accurate representation).
+- [Meshy](https://www.meshy.ai) — Generate meshes (great for prototyping, but watch out for high poly count).
+- [ElevenLabs](https://elevenlabs.io) — Generate custom voice lines.
 
 ## 🚨 Eject Before You Begin
 **Before making any changes or starting development, you must run `make eject` (or execute the `eject.py` script).**
@@ -47,14 +55,6 @@ Make sure these tools are installed before you begin.
   - Check that all required dependencies are present in your Subnautica installation.
 - **Other issues:**
   - See the [CONTRIBUTING.md](CONTRIBUTING.md) for more help or to report a problem.
-
-## 🌟 Helpful Modding Resources
-
-- [Nautilus API Documentation](https://subnauticamodding.github.io/Nautilus/index.html) — Essential reference for Subnautica modding with Nautilus.
-- [SN1 Prefab Class IDs](https://raw.githubusercontent.com/32Kallies/Lee23-LegacySubnauticaMods/8e1451f5e064711834af464315cc3c17ea53d3e7/Resources/SN1-PrefabPaths.json) — List of base-game prefab class IDs, useful for making clone templates.
-- [Subnautica PDA Voice Generator](https://subnauticapdavoice.com) — Generate new PDA voice lines (most accurate representation).
-- [Meshy](https://www.meshy.ai) — Generate meshes (great for prototyping, but watch out for high poly count).
-- [ElevenLabs](https://elevenlabs.io) — Generate custom voice lines.
 
 ## 📁 Project Structure & Conventions
 This template features a thoughtfully organized directory structure:
