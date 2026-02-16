@@ -149,6 +149,20 @@ def main():
     if not confirm:
         abort("User cancelled the eject process.")
     do_replacements(files, modauthor, modid, modname, modlongname, gamedir)
+    # Also do replacements in Makefile
+    makefile_path = 'Makefile'
+    if os.path.isfile(makefile_path):
+        try:
+            with open(makefile_path, 'r', encoding='utf-8', errors='ignore') as fp:
+                content = fp.read()
+            content = content.replace('MODAUTHOR', modauthor)
+            content = content.replace('MODID', modid)
+            content = content.replace('MODNAME', modname)
+            content = content.replace('MODLONGNAME', modlongname)
+            with open(makefile_path, 'w', encoding='utf-8') as fp:
+                fp.write(content)
+        except Exception as e:
+            print(f"  Skipped Makefile: {e}")
     # Wipe README.md and set to # <MODLONGNAME>
     with open('README.md', 'w', encoding='utf-8') as fp:
         fp.write(f"# {modlongname}\n")
