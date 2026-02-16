@@ -44,11 +44,14 @@ example_map = {
 }
 
 def prompt():
-    print("="*53)
+    YELLOW = '\033[93m'
+    RESET = '\033[0m'
+    print(YELLOW + "="*53)
     print(" WARNING: This script will personalize your mod template by replacing template naming occurrences in your project files.")
     print(" It will DELETE ITSELF after running. This action cannot be undone!")
     print(" Make sure you are ready to eject before proceeding.")
-    print("="*53)
+    print(" If you have the C# Dev Kit extension installed in VS Code, please temporarily disable it before running this script. It may lock files and prevent renaming or deleting during the eject process.")
+    print("="*53 + RESET)
     print()
     modauthor = prompt_abort(questionary.text("Mod Author (your name or handle, e.g. visolar6):", validate=lambda t: bool(t.strip())))
     modid = prompt_abort(questionary.text("Mod ID (lowercase, used in GUID, e.g. mymod):", validate=lambda t: bool(t.strip())))

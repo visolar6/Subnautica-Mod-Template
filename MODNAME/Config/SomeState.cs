@@ -6,7 +6,7 @@ namespace MODNAME.Config
     /// You can also create multiple config files by creating multiple classes that inherit from ConfigFile.
     /// </summary>
     /// <remarks>
-    /// <see cref="https://subnauticamodding.github.io/Nautilus/api/Nautilus.Json.ConfigFile.html"/> 
+    /// <see cref="https://subnauticamodding.github.io/Nautilus/api/Nautilus.Json.ConfigFile.html"/>
     /// </remarks>
     public class SomeState : Nautilus.Json.ConfigFile
     {

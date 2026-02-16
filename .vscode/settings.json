@@ -1,5 +1,10 @@
 {
-    "dotnet.formatting.organizeImportsOnFormat": true,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "ms-dotnettools.csharp",
+  "csharp.semanticHighlighting.enabled": false,
+  "dotnet.formatting.organizeImportsOnFormat": true,
+  "dotnet.testWindow.disableAutoDiscovery": true,
+  "dotnet.testWindow.disableBuildOnRefresh": true,
+  "dotnet.testWindow.disableBuildOnRun": true,
+  "dotnet.testWindow.skipTargetFrameworkCompatibilityCheck": true,
 }
