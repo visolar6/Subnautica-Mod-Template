@@ -1,5 +1,8 @@
 name: NexusMods
 
+permissions:
+  contents: none
+
 on:
   release:
     types: [published]

@@ -1,5 +1,7 @@
-
 name: OpenMods
+
+permissions:
+  contents: none
 
 on:
   release:

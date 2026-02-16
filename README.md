@@ -1,8 +1,18 @@
 # Subnautica Mod Template
 
-> **Note:** This template is highly opinionated. Not all Subnautica mods follow this structure or set of conventions—this template reflects the author's best attempt at a maintainable, scalable, and modern modding workflow. Use it as a strong starting point, but be aware that other mods in the community may look very different.
 
-Welcome to the Subnautica Mod Template repository! This project is designed to help Subnautica mod developers quickly bootstrap their next mod with a clean, organized, and opinionated structure. The directory and file naming conventions used here are based on best practices and good etiquette for mod development, making it easier to maintain, share, and collaborate on your mod projects.
+Welcome to the Subnautica Mod Template repository!
+
+This template provides a modern, maintainable starting point for Subnautica mod development. It features a modular directory structure, clear naming conventions, and practical example files for common modding tasks. Whether you're new to Subnautica modding or want to streamline your workflow, this template helps you:
+
+- Quickly bootstrap new mods with a ready-to-eject structure
+- Follow best practices for code organization, asset management, and localization
+- Integrate with popular modding APIs and tools (like Nautilus, OpenMods, NexusMods)
+- Collaborate more easily with other developers
+
+While not all Subnautica mods follow this structure, this template reflects the author's best attempt at a scalable, maintainable workflow. Use it as a strong foundation, adapt as needed, and enjoy faster, cleaner mod development!
+
+> **Note:** This template is highly opinionated. Not all Subnautica mods follow this structure or set of conventions—this template reflects the author's best attempt at a maintainable, scalable, and modern modding workflow. Use it as a strong starting point, but be aware that other mods in the community may look very different.
 
 ## ⚙️ Requirements / Prerequisites
 
