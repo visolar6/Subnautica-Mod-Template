@@ -1,9 +1,19 @@
 #!/usr/bin/env python3
 """
 Eject script for Subnautica Mod Template
-Prompts for author, modid, modname, modlongname, does replacements, and deletes itself
+Prompts for author, modid, modname, modlongname, does replacements, and deletes itself.
+
+Non-interactive usage (all arguments required):
+    python eject.py \\
+        --modauthor visolar6 \\
+        --modid mymod \\
+        --modname MyMod \\
+        --modlongname "My Mod" \\
+        --gamedir "C:/Program Files (x86)/Steam/steamapps/common/Subnautica" \\
+        --yes
 """
 
+import argparse
 import os
 import sys
 import re
@@ -134,22 +144,43 @@ def main():
     signal.signal(signal.SIGTERM, signal_abort)
     # SIGKILL cannot be caught or handled in Python
 
-    modauthor, modid, modname, modlongname, gamedir = prompt()
+    parser = argparse.ArgumentParser(description="Eject the Subnautica Mod Template.")
+    parser.add_argument("--modauthor", help="Mod author (e.g. visolar6)")
+    parser.add_argument("--modid", help="Mod ID, lowercase (e.g. mymod)")
+    parser.add_argument("--modname", help="Mod name, no spaces (e.g. MyMod)")
+    parser.add_argument("--modlongname", help="Mod long name, display name (e.g. My Mod)")
+    parser.add_argument("--gamedir", help="Path to Subnautica game directory")
+    parser.add_argument("--yes", action="store_true", help="Skip confirmation prompt")
+    args = parser.parse_args()
+
+    non_interactive = all([args.modauthor, args.modid, args.modname, args.modlongname, args.gamedir, args.yes])
+
+    if non_interactive:
+        modauthor = args.modauthor
+        modid = args.modid
+        modname = args.modname
+        modlongname = args.modlongname
+        gamedir = args.gamedir
+    else:
+        modauthor, modid, modname, modlongname, gamedir = prompt()
+
     hyplongname = modlongname.replace(' ', '-')
     files = find_files()
-    preview_replacements(files)
-    preview_renames(modid, modname, modlongname)
-    print("\nReplacement values:")
-    print(f"  MODAUTHOR     -> {modauthor}")
-    print(f"  MODID        -> {modid}")
-    print(f"  MODNAME      -> {modname}")
-    print(f"  MODLONGNAME  -> {modlongname}")
-    print(f"  GameDir      -> {gamedir}")
-    print("\nMake sure none of the affected files are open before proceeding.")
-    print()
-    confirm = questionary.confirm("Continue with these replacements and renames?").ask()
-    if not confirm:
-        abort("User cancelled the eject process.")
+
+    if not non_interactive:
+        preview_replacements(files)
+        preview_renames(modid, modname, modlongname)
+        print("\nReplacement values:")
+        print(f"  MODAUTHOR     -> {modauthor}")
+        print(f"  MODID        -> {modid}")
+        print(f"  MODNAME      -> {modname}")
+        print(f"  MODLONGNAME  -> {modlongname}")
+        print(f"  GameDir      -> {gamedir}")
+        print("\nMake sure none of the affected files are open before proceeding.")
+        print()
+        confirm = questionary.confirm("Continue with these replacements and renames?").ask()
+        if not confirm:
+            abort("User cancelled the eject process.")
     do_replacements(files, modauthor, modid, modname, modlongname, gamedir)
     # Also do replacements in Makefile
     makefile_path = 'Makefile'
@@ -194,16 +225,6 @@ def main():
             mf.writelines(lines)
     except Exception as e:
         print(f"Warning: Could not update Makefile to remove eject target: {e}")
-
-    # Remove the .git folder
-    git_dir = '.git'
-    import shutil
-    if os.path.isdir(git_dir):
-        try:
-            shutil.rmtree(git_dir)
-            print(".git folder removed.")
-        except Exception as e:
-            print(f"Warning: Could not remove {git_dir}: {e}")
 
     # Delete this script
     try:
