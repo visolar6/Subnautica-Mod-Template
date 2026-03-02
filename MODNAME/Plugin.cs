@@ -2,7 +2,7 @@ using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using MODNAME.Prefabs.Equipment;
+using MODNAME.Utilities;
 using Nautilus.Handlers;
 using Nautilus.Utility;
 using UnityEngine;
@@ -38,12 +38,7 @@ namespace MODNAME
         private void Start()
         {
             _harmony.PatchAll();
-            RegisterPrefabs();
-        }
-
-        private void RegisterPrefabs()
-        {
-            SomeChip.Register();
+            PrefabsUtil.RegisterAllPrefabs();
         }
     }
 }

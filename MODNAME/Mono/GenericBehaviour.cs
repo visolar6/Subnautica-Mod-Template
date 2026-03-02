@@ -3,7 +3,7 @@ using UnityEngine;
 namespace MODNAME.Mono
 {
     // https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
-    public class SomeBehaviour : MonoBehaviour
+    public class GenericBehaviour : MonoBehaviour
     {
         private void Awake()
         {

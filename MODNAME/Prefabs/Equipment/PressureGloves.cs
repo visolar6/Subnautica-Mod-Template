@@ -6,22 +6,22 @@ using UnityEngine;
 
 namespace MODNAME.Prefabs.Equipment
 {
-    internal static class SomeGloves
+    internal static class PressureGloves
     {
         internal static PrefabInfo Info { get; } = PrefabInfo
-            .WithTechType("SomeGloves", unlockAtStart: true, techTypeOwner: Assembly.GetExecutingAssembly())
+            .WithTechType("PressureGloves", unlockAtStart: true, techTypeOwner: Assembly.GetExecutingAssembly())
             .WithSizeInInventory(new Vector2int(2, 2))
-            .WithIcon(Plugin.AssetBundle.LoadAsset<Sprite>("SomeGlovesIcon"));
+            .WithIcon(Plugin.AssetBundle.LoadAsset<Sprite>("PressureGlovesIcon"));
 
-        public static void Patch()
+        public static void Register()
         {
             var prefab = new CustomPrefab(Info);
             var cloneTemplate = new CloneTemplate(Info, TechType.ReinforcedGloves);
             cloneTemplate.ModifyPrefab += gameObject =>
             {
                 var renderer = gameObject.GetComponentInChildren<Renderer>();
-                renderer.material.SetTexture("_MainTex", Plugin.AssetBundle.LoadAsset<Texture2D>("SomeGlovesMain"));
-                renderer.material.SetTexture(ShaderPropertyID._SpecTex, Plugin.AssetBundle.LoadAsset<Texture2D>("SomeGlovesSpec"));
+                renderer.material.SetTexture("_MainTex", Plugin.AssetBundle.LoadAsset<Texture2D>("PressureGlovesMain"));
+                renderer.material.SetTexture(ShaderPropertyID._SpecTex, Plugin.AssetBundle.LoadAsset<Texture2D>("PressureGlovesSpec"));
             };
             prefab.SetGameObject(cloneTemplate);
             prefab.SetEquipment(EquipmentType.Gloves);

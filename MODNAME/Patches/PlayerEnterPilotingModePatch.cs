@@ -4,7 +4,7 @@ namespace MODNAME.Patches
 {
     // https://harmony.pardeike.net/articles/patching.html
     [HarmonyPatch(typeof(Player), nameof(Player.EnterPilotingMode))]
-    public static class SomePatch
+    internal static class PlayerEnterPilotingModePatch
     {
         [HarmonyPrefix]
         private static bool Prefix(Player __instance__, PilotingChair chair, bool keepCinematicState = false)

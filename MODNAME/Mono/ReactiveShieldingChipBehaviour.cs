@@ -2,7 +2,10 @@ using ChipLibrary;
 
 namespace MODNAME.Mono
 {
-    public class SomeChipBehaviour : ChipBase
+    /// <summary>
+    /// Example chip behaviour. This class will be instantiated for each equipped chip of the corresponding type, and will persist until the chip is unequipped.
+    /// </summary>
+    public class ReactiveShieldingChipBehaviour : ChipBase
     {
         public override bool UsesUpdate => true;
 

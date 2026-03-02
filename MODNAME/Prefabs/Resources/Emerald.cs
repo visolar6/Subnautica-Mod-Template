@@ -6,15 +6,14 @@ using static LootDistributionData;
 
 namespace MODNAME.Prefabs.Resources
 {
-    // https://subnauticamodding.github.io/Nautilus/tutorials/prefabs-overview.html
-    internal class SomeResource
+    internal static class Emerald
     {
-        internal PrefabInfo Info { get; } = PrefabInfo
-            .WithTechType("SomeResource", unlockAtStart: true, techTypeOwner: Assembly.GetExecutingAssembly())
+        internal static PrefabInfo Info { get; } = PrefabInfo
+            .WithTechType("Emerald", unlockAtStart: true, techTypeOwner: Assembly.GetExecutingAssembly())
             .WithSizeInInventory(new Vector2int(1, 1))
-            .WithIcon(Plugin.AssetBundle.LoadAsset<Sprite>("SomeResourceIcon"));
+            .WithIcon(Plugin.AssetBundle.LoadAsset<Sprite>("EmeraldIcon"));
 
-        internal void Register()
+        internal static void Register()
         {
             var prefab = new CustomPrefab(Info);
             prefab.SetGameObject(ModifyPrefab);
@@ -31,9 +30,16 @@ namespace MODNAME.Prefabs.Resources
             prefab.Register();
         }
 
-        internal GameObject ModifyPrefab()
+        private static GameObject ModifyPrefab()
         {
-            var prefab = new GameObject("SomeResource");
+            var prefab = new GameObject("Emerald");
+            foreach (var renderer in prefab.GetComponentsInChildren<Renderer>())
+            {
+                foreach (var material in renderer.materials)
+                {
+                    material.color = Color.green;
+                }
+            }
             return prefab;
         }
     }
