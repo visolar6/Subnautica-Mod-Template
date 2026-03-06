@@ -11,6 +11,6 @@ To enable automated publishing, configure these secrets:
 ## Asset & Content Organization
 - `.nexusmods/summary.txt`: A short summary of your mod (max 200 characters) for NexusMods.
 - `.nexusmods/details.bbcode`: Place your NexusMods full mod description here for easy copy-pasting when updating your NexusMods page.
-- `media/`: Store images for your mod's gallery on openmods.net. These images appear in the gallery section of your mod page. This is also a convenient place to store any media assets you upload manually to NexusMods.
+- `.openmods/media/`: Store images for your mod's gallery on openmods.net. These images appear in the gallery section of your mod page. This is also a convenient place to store any media assets you upload manually to NexusMods.
 
 Ensure all assets and secrets are in place before publishing.
