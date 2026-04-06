@@ -52,7 +52,7 @@ Make sure these tools are installed before you begin.
   - Make sure you have the correct .NET SDK and Unity version installed.
   - Check that all required dependencies are present in your Subnautica installation.
 - **Other issues:**
-  - See the [CONTRIBUTING.md](CONTRIBUTING.md) for more help or to report a problem.
+  - See the [CONTRIBUTING.md](.github/CONTRIBUTING.md) for more help or to report a problem.
 
 
 ## 📁 Project Structure & Example Files
